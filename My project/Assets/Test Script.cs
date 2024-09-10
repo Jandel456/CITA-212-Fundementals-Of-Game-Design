@@ -27,7 +27,7 @@ public class NewBehaviourScript : MonoBehaviour
         
     }
 
-    else if (Input.GetKey(KeyCode.W))
+    else if (Input.GetKey(KeyCode.W))   
     {
         transform.position += Vector3.up * moveSpeed * Time.deltaTime;
 
