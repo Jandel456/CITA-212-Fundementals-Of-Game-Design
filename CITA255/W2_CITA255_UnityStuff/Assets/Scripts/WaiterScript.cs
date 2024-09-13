@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 
 public class WaiterScript : MonoBehaviour
 {
     //define the greetings array and men list
-    string[] geetngsArrayl;
+    string[] greetingsArray;
     List<string> menuList;
+
+    public TextMeshProUGUI menuText, waiterText;
+
+    string line0, line1, line2, line3, line4, line5;
+
+    int currentIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        menuList = newList<string>();
-        AddFoodItems("Benedict Egg", "Sausage Egg and Cheese Sandwhich", "Two Eggs and Style", "Creamy Oaatmeal with Nuts and Fruits", "House Fries");
-        Debug.Log("This is our menu: " + menuList[0] + ", " + menuList[1] + ", " + menuList[2] + ", " + menuList[3] + ", " + menuList[4]);
+        menuList = new List<string>();
 
-        menuText.text("Benedict Egg", "Sausage Egg and Cheese Sandwhich", "Two Eggs and Style", "Creamy Oaatmeal with Nuts and Fruits", "House Fries");
+        AddFoodItems("Benedict Egg", "Sausage Egg and Cheese Sandwhich", "Two Eggs and Style", "Creamy Oaatmeal with Nuts and Fruits", "House Fries");
+        
         Debug.Log("This is our menu: " + menuList[0] + ", " + menuList[1] + ", " + menuList[2] + ", " + menuList[3] + ", " + menuList[4]);
+        
+        menuText.text = "This is our menu: " + menuList[0] + ", " + menuList[1] + ", " + menuList[2] + ", " + menuList[3] + ", " + menuList[4];
 
         //initialize the lines from the waiter
         line0 = "Welcome!";
@@ -29,7 +37,7 @@ public class WaiterScript : MonoBehaviour
 
         greetingsArray = new string[] { line0, line1, line2, line3, line4, line5 };
 
-        waiterText.text = geettingArray[currentIndex];
+        waiterText.text = greetingsArray[currentIndex];
 
     }
 
@@ -48,7 +56,7 @@ public class WaiterScript : MonoBehaviour
         if (currentIndex < greetingsArray.Length - 1)
         {
             currentIndex++;
-            waiterText.text = greetingsArray{ currentIndex};
+            waiterText.text = greetingsArray[currentIndex];
         }
         else
         {
