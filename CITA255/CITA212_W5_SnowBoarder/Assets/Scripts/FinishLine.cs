@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D other) 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.tag == "Player")
+        {
+            Debug.Log("You Finished!");
+        }
     }
 }
