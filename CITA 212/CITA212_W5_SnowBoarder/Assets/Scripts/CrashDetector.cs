@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
-    [SerializeField] float LoadDelay = 0.5f;
+    [SerializeField] float LoadDelay = 0.9f;
     [SerializeField] ParticleSystem CrashEffect;
     [SerializeField] AudioClip crashSFX;
 
@@ -13,6 +13,8 @@ public class CrashDetector : MonoBehaviour
     {
         if (other.tag == "Ground")
         {
+            FindAnyObjectByType<PlayerController>().DisableControls();
+
             CrashEffect.Play();
 
             Debug.Log("You Crashed!");
