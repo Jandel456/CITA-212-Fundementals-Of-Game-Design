@@ -9,7 +9,6 @@ public class CrashDetector : MonoBehaviour
     [SerializeField] ParticleSystem CrashEffect;
     [SerializeField] AudioClip crashSFX;
 
-
     void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.tag == "Ground")

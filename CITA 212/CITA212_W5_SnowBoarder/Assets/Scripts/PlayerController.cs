@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] float torqueAmmount = 10f;
+    [SerializeField] float torqueAmmount = 100f;  // this was originall 10f, but after adding sound effects to the game it TANKED my fps, so i had to raise it to 100f.
     [SerializeField] float BoostSpeed = 30f;
     [SerializeField] float BaseSpeed = 20f;
 
