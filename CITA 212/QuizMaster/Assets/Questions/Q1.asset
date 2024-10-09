@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85385b340aad704fb2a9ffbd0c3d34d, type: 3}
   m_Name: Q1
   m_EditorClassIdentifier: 
-  Question: "What weapons are you allowed to keep on campus?\r"
+  question: "What weapons are you allowed to keep on campus?\r"
+  answers:
+  - 'A. Taser '
+  - 'B. Pepper Spray / Mace '
+  - 'C. Intercontinental ballistic missile: LGM-30 Minuteman-III '
+  - 'D. None of the above '
+  correctAnswerIndex: 4

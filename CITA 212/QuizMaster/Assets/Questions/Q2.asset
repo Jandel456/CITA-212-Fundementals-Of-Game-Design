@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85385b340aad704fb2a9ffbd0c3d34d, type: 3}
   m_Name: Q2
   m_EditorClassIdentifier: 
-  Question: "What is the policy on alcohol use in the residence halls at SUNY Morrisville?\r"
+  question: "What is the policy on alcohol use in the residence halls at SUNY Morrisville?\r"
+  answers:
+  - 'A. Alcohol is allowed for students over 21 '
+  - 'B. Alcohol is not allowed in any residence hall except commons '
+  - 'C. Alcohol is not restricted on campus '
+  - "D. Alcohol is allowed with an RA\u2019s permission "
+  correctAnswerIndex: 2

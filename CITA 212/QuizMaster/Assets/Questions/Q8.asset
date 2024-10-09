@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85385b340aad704fb2a9ffbd0c3d34d, type: 3}
   m_Name: Q8
   m_EditorClassIdentifier: 
-  Question: "What is the name of SUNY Morrisville's Mascot?\r"
+  question: "What is the name of SUNY Morrisville's Mascot, The Mustang?\r"
+  answers:
+  - 'A. John '
+  - 'B. Mo '
+  - 'C. Manny '
+  - 'D. Maurice '
+  correctAnswerIndex: 2

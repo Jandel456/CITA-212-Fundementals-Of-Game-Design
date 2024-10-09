@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85385b340aad704fb2a9ffbd0c3d34d, type: 3}
   m_Name: Q5
   m_EditorClassIdentifier: 
-  Question: "What is the process for withdrawing from a class at SUNY Morrisville?\r"
+  question: "What is the process for withdrawing from a class at SUNY Morrisville?\r"
+  answers:
+  - 'A. Inform your professor by email '
+  - "B. Contact the Registrar\u2019s Office "
+  - 'C. Stop attending the class '
+  - "D. Call the academic dean\u2019s office "
+  correctAnswerIndex: 2

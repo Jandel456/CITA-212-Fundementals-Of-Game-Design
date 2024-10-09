@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85385b340aad704fb2a9ffbd0c3d34d, type: 3}
   m_Name: Q7
   m_EditorClassIdentifier: 
-  Question: "Which popular streamer went to SUNY Morrisville\r"
+  question: "Which popular streamer went to SUNY Morrisville\r"
+  answers:
+  - 'A. Kai Cenat '
+  - 'B. Shroud '
+  - 'C. Ninja '
+  - 'D. We''re not that special, no one went to this college '
+  correctAnswerIndex: 1

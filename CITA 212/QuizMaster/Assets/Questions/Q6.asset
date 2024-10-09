@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85385b340aad704fb2a9ffbd0c3d34d, type: 3}
   m_Name: Q6
   m_EditorClassIdentifier: 
-  Question: "Which of the following items is prohibited in SUNY Morrisville residence
+  question: "Which of the following items is prohibited in SUNY Morrisville residence
     halls?\r"
+  answers:
+  - 'A. Air fryers '
+  - 'B. Space Heaters '
+  - 'C. Candles '
+  - 'D. All of the above '
+  correctAnswerIndex: 4

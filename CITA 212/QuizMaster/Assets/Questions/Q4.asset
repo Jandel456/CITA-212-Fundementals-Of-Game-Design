@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85385b340aad704fb2a9ffbd0c3d34d, type: 3}
   m_Name: Q4
   m_EditorClassIdentifier: 
-  Question: "Which department at SUNY Morrisville is responsible for organizing student
+  question: "Which department at SUNY Morrisville is responsible for organizing student
     clubs and activities?\r"
+  answers:
+  - 'A. University Police '
+  - 'B. Student Activities '
+  - 'C. Library Services '
+  - 'D. Residence Life '
+  correctAnswerIndex: 2

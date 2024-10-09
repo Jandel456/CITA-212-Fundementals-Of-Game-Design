@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85385b340aad704fb2a9ffbd0c3d34d, type: 3}
   m_Name: Q3
   m_EditorClassIdentifier: 
-  Question: "What office should a student contact if they feel they have been a victim
+  question: "What office should a student contact if they feel they have been a victim
     of discrimination on campus?\r"
+  answers:
+  - 'A. Student Accounts '
+  - 'B. Human Resources '
+  - 'C. Office of Student Rights and Responsibilities '
+  - 'D. Library Services '
+  correctAnswerIndex: 3
