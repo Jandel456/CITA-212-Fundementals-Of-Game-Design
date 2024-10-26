@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] float timeToCompleteQuestion = 30f;
-    [SerializeField] float timeToShowCorrectAnswer = 10f;
+    [SerializeField] float timeToCompleteQuestion = 15f;
+    [SerializeField] float timeToShowCorrectAnswer = 5f;
+
     public bool loadNextQuestion;
-    public bool isAnsweringQuestion = false;
+    public bool isAnsweringQuestion;
     public float fillFraction;
+    
     float timerValue;   // floats start at 0 by default :)
 
     void Update()
@@ -25,7 +27,7 @@ public class Timer : MonoBehaviour
     {
         timerValue -= Time.deltaTime;
 
-        if(isAnsweringQuestion == true)
+        if(isAnsweringQuestion)
         {
             if(timerValue > 0)
             {
@@ -41,7 +43,7 @@ public class Timer : MonoBehaviour
         {
             if(timerValue > 0)
             {
-                fillFraction = timerValue / timeToCompleteQuestion;
+                fillFraction = timerValue / timeToShowCorrectAnswer;
             }
             else
             {
