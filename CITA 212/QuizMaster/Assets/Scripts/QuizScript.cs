@@ -17,15 +17,7 @@ public class QuizScript : MonoBehaviour
 
     void Start()
     {
-        questionText.text = question.GetQuestion();
-
-        for(int i = 0; i < answerbuttons.Length; i++)
-        // this will look through the cildren of answer buttons and find the first textmeshpro component that it can
-        // then it will change the text of that button to answer of our stored question
-        {
-        TextMeshProUGUI buttonText = answerbuttons[i].GetComponentInChildren<TextMeshProUGUI>();        
-        buttonText.text = question.GetAnswer(i);
-        }
+        DisplayQuestion();
     }
 
     public void OnAnswerSelected(int index)
@@ -47,5 +39,45 @@ public class QuizScript : MonoBehaviour
             buttonImage = answerbuttons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
         }
+        SetButtonState(false);
     }
+
+    void GetNextQuestion()
+    {
+        SetButtonState(true);
+        SetDefaultButtonSprites();
+        DisplayQuestion();
+    }
+
+    void DisplayQuestion()
+    {
+        questionText.text = question.GetQuestion();
+
+        for(int i = 0; i < answerbuttons.Length; i++)
+        // this will look through the cildren of answer buttons and find the first textmeshpro component that it can
+        // then it will change the text of that button to answer of our stored question
+        {
+            TextMeshProUGUI buttonText = answerbuttons[i].GetComponentInChildren<TextMeshProUGUI>();        
+            buttonText.text = question.GetAnswer(i);
+        }
+    }
+
+    void SetButtonState(bool state)
+    {
+        for(int i = 0; i < answerbuttons.Length; i++)
+        {
+            Button button = answerbuttons[i].GetComponent<Button>();
+            button.interactable = state;
+        }
+    }
+
+    void SetDefaultButtonSprites()
+    {
+        for(int i = 0; i < answerbuttons.Length; i++)
+        {
+            Image buttonImage = answerbuttons[i].GetComponent<Image>();
+            buttonImage.sprite = defaultAnswerSprite;
+        }
+    }
+
 }
