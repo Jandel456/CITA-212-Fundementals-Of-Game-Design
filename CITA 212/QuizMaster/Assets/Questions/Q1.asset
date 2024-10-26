@@ -16,6 +16,6 @@ MonoBehaviour:
   answers:
   - 'A. Taser '
   - 'B. Pepper Spray / Mace '
-  - 'C. Intercontinental ballistic missile: LGM-30 Minuteman-III '
+  - C. Intercontinental ballistic missiles
   - 'D. None of the above '
-  correctAnswerIndex: 4
+  correctAnswerIndex: 3
