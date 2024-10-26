@@ -14,6 +14,7 @@ public class QuizScript : MonoBehaviour
     int correctAnswerIndex;
     [SerializeField] Sprite defaultAnswerSprite;
     [SerializeField] Sprite correctAnswerSprite;
+    [SerializeField] Image timerImage;
 
     void Start()
     {
