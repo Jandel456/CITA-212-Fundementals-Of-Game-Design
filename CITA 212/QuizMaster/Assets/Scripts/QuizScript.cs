@@ -5,12 +5,15 @@ using TMPro;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
+using System;
+using Random = UnityEngine.Random;
 
 public class QuizScript : MonoBehaviour
 {
     [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
-    [SerializeField] QuestionSO question;
+    [SerializeField] List<QuestionSO> questions = new List<QuestionSO>();
+    QuestionSO currentQuestion;
 
     [Header("Answers")]
     [SerializeField] GameObject[] answerbuttons;
@@ -28,8 +31,6 @@ public class QuizScript : MonoBehaviour
     void Start()
     {
         timer = FindObjectOfType<Timer>();
-        GetNextQuestion();
-        //DisplayQuestion();
     }
 
     void Update()
@@ -60,7 +61,7 @@ public class QuizScript : MonoBehaviour
     {
         Image buttonImage;
 
-        if(index == question.GetCorretAnswerIndex())
+        if(index == currentQuestion.GetCorretAnswerIndex())
         {
             questionText.text = "Correct!"; // "Correct!" for now is a placeholder, we might want to add more details like why its correct
             buttonImage = answerbuttons[index].GetComponent<Image>();
@@ -68,8 +69,8 @@ public class QuizScript : MonoBehaviour
         }
         else
         {
-            correctAnswerIndex = question.GetCorretAnswerIndex();
-            string correctAnswer = question.GetAnswer(correctAnswerIndex);
+            correctAnswerIndex = currentQuestion.GetCorretAnswerIndex();
+            string correctAnswer = currentQuestion.GetAnswer(correctAnswerIndex);
             questionText.text = "Sorry the correct answer was;\n" + correctAnswer;
 
             buttonImage = answerbuttons[correctAnswerIndex].GetComponent<Image>();
@@ -79,21 +80,33 @@ public class QuizScript : MonoBehaviour
 
     void GetNextQuestion()
     {
-        SetButtonState(true);
-        SetDefaultButtonSprites();
-        DisplayQuestion();
+        if (questions.Count > 0)
+        {
+            SetButtonState(true);
+            SetDefaultButtonSprites();
+            GetRandomQuestion();
+            DisplayQuestion();
+        }
     }
-
+    void GetRandomQuestion()
+    {
+        int index = Random.Range(0,questions.Count);
+        currentQuestion = questions[index];
+        if(questions.Contains(currentQuestion))
+        {
+            questions.Remove(currentQuestion);
+        }
+    }
     void DisplayQuestion()
     {
-        questionText.text = question.GetQuestion();
+        questionText.text = currentQuestion.GetQuestion();
 
         for(int i = 0; i < answerbuttons.Length; i++)
         // this will look through the cildren of answer buttons and find the first textmeshpro component that it can
         // then it will change the text of that button to answer of our stored question
         {
             TextMeshProUGUI buttonText = answerbuttons[i].GetComponentInChildren<TextMeshProUGUI>();        
-            buttonText.text = question.GetAnswer(i);
+            buttonText.text = currentQuestion.GetAnswer(i);
         }
     }
 
