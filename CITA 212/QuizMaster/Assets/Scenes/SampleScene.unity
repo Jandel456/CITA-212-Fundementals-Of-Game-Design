@@ -223,6 +223,7 @@ RectTransform:
   - {fileID: 2142814373}
   - {fileID: 767307386}
   - {fileID: 1581664465}
+  - {fileID: 520867687}
   - {fileID: 1751552020}
   - {fileID: 2140393112}
   m_Father: {fileID: 0}
@@ -256,10 +257,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cd2251198a94db94e89641d7d8d22804, type: 2}
   - {fileID: 11400000, guid: a42c62a0c79c3934381b57b7ca19598d, type: 2}
   - {fileID: 11400000, guid: a75cb452a76743b48b6915b295e90f71, type: 2}
-  - {fileID: 11400000, guid: 2735113051c0eec48a975d881f510c3d, type: 2}
-  - {fileID: 11400000, guid: 85c27a9964fcd3d4a95ef8e537701a1f, type: 2}
-  - {fileID: 11400000, guid: af4db3b0450949441a8436b4d382ced3, type: 2}
-  - {fileID: 11400000, guid: c215aa573b3862b4199731157378b5e7, type: 2}
+  - {fileID: 11400000, guid: a7a76c854d71c7d44a03d2ed5e25a746, type: 2}
+  - {fileID: 11400000, guid: 72bfd152325a5c247a218a899e67a6d1, type: 2}
+  - {fileID: 11400000, guid: 68c6231363ab6cf40b183a86dfe92311, type: 2}
+  - {fileID: 11400000, guid: 7f68c0d982a619840bce22f313d5ebe7, type: 2}
+  - {fileID: 11400000, guid: 855dc621d05c33d47ada598f5de5a40a, type: 2}
+  - {fileID: 11400000, guid: a72a1c5d15b86b548b9bfe94532c118c, type: 2}
+  - {fileID: 11400000, guid: 2b4eece3f02826c44aa90e1717396566, type: 2}
+  - {fileID: 11400000, guid: 2f67b7c21bca3ab499c64f690d45edb9, type: 2}
   answerbuttons:
   - {fileID: 739942134}
   - {fileID: 655843812}
@@ -268,6 +273,7 @@ MonoBehaviour:
   defaultAnswerSprite: {fileID: 21300000, guid: 80921514543d735489f8bef4b5a7ff9c, type: 3}
   correctAnswerSprite: {fileID: 21300000, guid: 1b437718c0ff6af458aeb4cbaf0e7eff, type: 3}
   timerImage: {fileID: 2140393113}
+  scoreText: {fileID: 1581664466}
 --- !u!1 &486096820
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +736,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &520867686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520867687}
+  - component: {fileID: 520867688}
+  m_Layer: 0
+  m_Name: ScoreKeeper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &520867687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520867686}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -178.95613, y: 167.84796, z: 117413.805}
+  m_LocalScale: {x: 108, y: 108, z: 108}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 53452315}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &520867688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520867686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56dcbb2f33ad62f4d9fa473ac636c80a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &610152192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1387,7 +1437,7 @@ GameObject:
   - component: {fileID: 1581664467}
   - component: {fileID: 1581664466}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1409,8 +1459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -500, y: 300}
-  m_SizeDelta: {x: 225, y: 50}
+  m_AnchoredPosition: {x: -603.07, y: 274}
+  m_SizeDelta: {x: 293.87, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1581664466
 MonoBehaviour:
@@ -1459,8 +1509,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
