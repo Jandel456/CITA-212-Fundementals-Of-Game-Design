@@ -1,11 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
-using System;
 using Random = UnityEngine.Random;
 
 public class QuizScript : MonoBehaviour
@@ -32,10 +31,17 @@ public class QuizScript : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     ScoreKeeper scoreKeeper;
 
+    [Header("Scoring")]
+    [SerializeField] Slider progressBar;
+    public bool isComplete;
+
+
     void Start()
     {
         timer = FindObjectOfType<Timer>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        progressBar.maxValue = questions.Count;
+        progressBar.value = 0;
     }
 
     void Update()
@@ -61,6 +67,11 @@ public class QuizScript : MonoBehaviour
         SetButtonState(false);
         timer.CancelTimer();
         scoreText.text = "Score: " + scoreKeeper.CalculateScore() + "%";
+
+        if(progressBar.value == progressBar.maxValue)
+        {
+            isComplete = true;
+        }
     }
 
     void DisplayAnswer(int index)
@@ -93,6 +104,7 @@ public class QuizScript : MonoBehaviour
             SetDefaultButtonSprites();
             GetRandomQuestion();
             DisplayQuestion();
+            progressBar.value++;
             scoreKeeper.IncrementQuestionSeen();
         }
     }
@@ -135,5 +147,6 @@ public class QuizScript : MonoBehaviour
             buttonImage.sprite = defaultAnswerSprite;
         }
     }
+
 
 }
