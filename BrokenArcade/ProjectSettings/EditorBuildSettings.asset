@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 569f2cf6fcbb23245b572d19910857ec
   - enabled: 1
-    path: Assets/Scenes/DeliveryDriver.unity
+    path: Assets/Scenes/1.unity
     guid: 5cea0293102305443ab335bf9824eb00
   - enabled: 1
-    path: Assets/Scenes/SwordFight.unity
+    path: Assets/Scenes/2.unity
     guid: 8107f71e0a2969d44ab3aeb8a6c2519f
   - enabled: 1
-    path: Assets/Scenes/BasketCatch.unity
+    path: Assets/Scenes/3.unity
     guid: b41a08fac6932634e8319a58a5381fbe
   - enabled: 1
     path: Assets/Scenes/winScene.unity

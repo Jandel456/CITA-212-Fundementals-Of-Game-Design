@@ -47,14 +47,14 @@ public class EnemyFighter : Fighter
 
         // Attack the player
         ChangeState(EnemyState.Attacking);
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = fighterAttack;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = playerfighterAttack;
         Debug.Log($"{gameObject.name} is attacking {target.gameObject.name}");
         target.TakeDamage(10); // Example damage value
 
         // Return to Neutral state
-        yield return new WaitForSeconds(attackCooldown); // Cooldown after attack
+        yield return new WaitForSeconds(playerattackCooldown); // Cooldown after attack
         ChangeState(EnemyState.Neutral);
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = fighterNuetral;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = playerfighterNuetral;
         isActing = false;
     }
 
@@ -70,9 +70,9 @@ public class EnemyFighter : Fighter
 
     private IEnumerator EndBlocking()
     {
-        yield return new WaitForSeconds(blockDuration);
+        yield return new WaitForSeconds(playerblockDuration);
 
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = fighterNuetral;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = playerfighterNuetral;
         ChangeState(EnemyState.Neutral);
         isActing = false;
     }

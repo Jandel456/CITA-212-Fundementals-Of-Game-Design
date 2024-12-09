@@ -7,22 +7,16 @@ public class Fighter : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
-    private bool isBlocking = false;
-    public float blockDuration = 1f; // Duration of blocking
-    public float attackCooldown = 1f; // Cooldown between attacks
+    private bool playerisBlocking = false;
+    public float playerblockDuration = 1f; // Duration of blocking
+    public float playerattackCooldown = 1f; // Cooldown between attacks
     private bool canAttack = true;
-    public Sprite fighterAttack;
-    public Sprite fighterBlock;
-    public Sprite fighterNuetral;
-    public int damage = 10;
-    public GameObject fightersprite; // the target for changing the sprite of the fighter
-    public Button blockButton;
-    public Fighter playerFighter;
+    public GameObject playerfightersprite; // the target for changing the sprite of the fighter
+    public Sprite playerfighterAttack;
+    public Sprite playerfighterBlock;
+    public Sprite playerfighterNuetral;
+    public int playerdamage = 10;
     private PureEnemyFighter enemy; // Reference to the enemy
-
-
-
-
 
     // UI Reference 
     public HealthBar healthBar; 
@@ -47,13 +41,13 @@ public class Fighter : MonoBehaviour
 
     if (Input.GetKeyDown(KeyCode.B))
     {
-        Attack();
+        Block();
     }
 }
 
     public void TakeDamage(int damage)
     {
-        if (isBlocking)
+        if (playerisBlocking)
         {
             currentHealth += 10;
             Debug.Log($"{gameObject.name} blocked the attack!");
@@ -80,13 +74,12 @@ public class Fighter : MonoBehaviour
     {
         if (canAttack)
         {
-            SpriteRenderer spriteRenderer = fightersprite.GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = fighterAttack;            
+            SpriteRenderer spriteRenderer = playerfightersprite.GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = playerfighterAttack;            
             
             Debug.Log($"{gameObject.name} attacks {enemy.gameObject.name}");
-            enemy.EnemyTakeDamage(damage);
+            enemy.EnemyTakeDamage(playerdamage);
             StartCoroutine(AttackCooldown());
-            spriteRenderer.sprite = fighterNuetral;
         }
         else
         {
@@ -98,10 +91,10 @@ public class Fighter : MonoBehaviour
     {
         Debug.Log("1111111111111111111111111111111111111111111111111111111111111111111111111111111Block function called!");
 
-        if (!isBlocking)
+        if (!playerisBlocking)
         {
-            SpriteRenderer spriteRenderer = fightersprite.GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = fighterBlock;
+            SpriteRenderer spriteRenderer = playerfightersprite.GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = playerfighterBlock;
 
             StartCoroutine(BlockCoroutine());
         }
@@ -109,19 +102,24 @@ public class Fighter : MonoBehaviour
 
     private IEnumerator BlockCoroutine()
     {
-        isBlocking = true;
+        SpriteRenderer spriteRenderer = playerfightersprite.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = playerfighterBlock;
+        playerisBlocking = true;
         Debug.Log($"{gameObject.name} is blocking!");
-        yield return new WaitForSeconds(blockDuration);
-        isBlocking = false;
-        SpriteRenderer spriteRenderer = fightersprite.GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = fighterNuetral;
+        yield return new WaitForSeconds(playerblockDuration);
+        playerisBlocking = false;
+        spriteRenderer.sprite = playerfighterNuetral;
         Debug.Log($"{gameObject.name} stopped blocking!");
     }
 
     private IEnumerator AttackCooldown()
     {
+        SpriteRenderer spriteRenderer = playerfightersprite.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = playerfighterAttack; 
         canAttack = false;
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSeconds(playerattackCooldown);
         canAttack = true;
+        spriteRenderer.sprite = playerfighterNuetral;
+
     }
 }

@@ -50,8 +50,7 @@ public class GameController : MonoBehaviour
 
     private void LoadScreen(int screenIndex)
     {
-        string sceneName = "Screen" + screenIndex;
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(screenIndex);
     }
 
     private int GetRemainingScreen()
