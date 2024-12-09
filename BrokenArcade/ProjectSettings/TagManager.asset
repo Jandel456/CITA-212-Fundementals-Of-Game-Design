@@ -9,6 +9,8 @@ TagManager:
   - Basket
   - Package
   - Customer
+  - Boundary
+  - Floor
   layers:
   - Default
   - TransparentFX
