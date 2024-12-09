@@ -4,11 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class Collision : MonoBehaviour
-{
-
-    [SerializeField] Color32 hasPackageColor = new Color32 (1, 1, 1, 1);
-    [SerializeField] Color32 noPackageColor = new Color32 (1, 1, 1, 1);
-    SpriteRenderer spriteRenderer;
+{    SpriteRenderer spriteRenderer;
 
 
     bool hasPackaage;
@@ -30,7 +26,6 @@ public class Collision : MonoBehaviour
         {
             Debug.Log("I picked up the package"); 
             hasPackaage = true;
-            spriteRenderer.color = hasPackageColor;
             Destroy(other.gameObject, destroyDelay);
         }
 
@@ -38,7 +33,6 @@ public class Collision : MonoBehaviour
         {
             Debug.Log("Another Happy Customer");
             hasPackaage = false;
-            spriteRenderer.color = noPackageColor;
             StartCoroutine(WaitTwoSeconds());
             /// PUT WIN IN HERE.
 

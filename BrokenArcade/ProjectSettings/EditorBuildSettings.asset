@@ -4,6 +4,21 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 569f2cf6fcbb23245b572d19910857ec
+  - enabled: 1
+    path: Assets/Scenes/DeliveryDriver.unity
+    guid: 5cea0293102305443ab335bf9824eb00
+  - enabled: 1
+    path: Assets/Scenes/LazerDefenderPlus.unity
+    guid: 426ab22a973c85b4c85139ebb453979a
+  - enabled: 1
+    path: Assets/Scenes/SwordFight.unity
+    guid: 8107f71e0a2969d44ab3aeb8a6c2519f
+  - enabled: 1
+    path: Assets/Scenes/BasketCatch.unity
+    guid: b41a08fac6932634e8319a58a5381fbe
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 070cb586a32ad7743b3ac1c641d8162a, type: 2}
