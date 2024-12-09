@@ -24,6 +24,7 @@ public class TimerScript : MonoBehaviour
             {
                 timeRemaining = 0f;
                 GameController.Instance.OnLose();
+                ResetTimer();
 
 
                 timerRunning = false;  // Stop the timer when it reaches 0

@@ -40,7 +40,7 @@ public class Deliverer : MonoBehaviour
 
     IEnumerator WaitThreeSeconds()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.5f);
         Debug.Log("3 seconds have passed!");
         moveSpeed = defaultSpeed;
 

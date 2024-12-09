@@ -224,10 +224,10 @@ MonoBehaviour:
   - {fileID: 2043693477393846627, guid: a59dad5da89e8cb41856cb0a0e97da37, type: 3}
   - {fileID: 7515581469823086280, guid: 649e4f31cd6182b4e8aee25fa2240bb1, type: 3}
   minSpawnInterval: 0.5
-  maxSpawnInterval: 2.5
-  mingrav: 2
-  maxgrav: 10
-  moveSpeed: 20
+  maxSpawnInterval: 2
+  mingrav: 10
+  maxgrav: 20
+  moveSpeed: 30
 --- !u!212 &22455055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5b1e9cc25e16544a785cdd6787bba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
+  moveSpeed: 50
   scoreText: {fileID: 1624351127}
 --- !u!50 &1258567796
 Rigidbody2D:

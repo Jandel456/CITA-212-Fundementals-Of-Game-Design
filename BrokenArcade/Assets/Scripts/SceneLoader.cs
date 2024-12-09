@@ -36,7 +36,14 @@ public class GameController : MonoBehaviour
             int remainingScreen = GetRemainingScreen();
             LoadScreen(remainingScreen);
         }
+
         else if (winCount == 3)
+        {
+            int remainingScreen = GetRemainingScreen();
+            LoadScreen(remainingScreen);
+        }
+
+        else if (winCount == 4)
         {
             SceneManager.LoadScene("winScene");
         }

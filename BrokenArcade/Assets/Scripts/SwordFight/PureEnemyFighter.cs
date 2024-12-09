@@ -60,7 +60,7 @@ public class PureEnemyFighter : MonoBehaviour
         {
             Debug.Log($"{gameObject.name} is defeated!");
             
-            // Optionally disable the GameObject
+            GameController.Instance.OnWin();
             gameObject.SetActive(false);
         }
     }

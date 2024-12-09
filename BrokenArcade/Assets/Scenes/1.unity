@@ -894,7 +894,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &89557430
 RectTransform:
@@ -11539,7 +11539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fe4901c6007434ebcd90fcf39d1099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberToRemove: 8
+  numberToRemove: 6
 --- !u!1 &1501328378
 GameObject:
   m_ObjectHideFlags: 0

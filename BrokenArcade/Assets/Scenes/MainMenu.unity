@@ -711,8 +711,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 554451661}
-        m_TargetAssemblyTypeName: RandomSceneLoader, Assembly-CSharp
-        m_MethodName: LoadRandomScene
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: OnWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
