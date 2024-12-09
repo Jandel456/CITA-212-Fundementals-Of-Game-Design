@@ -45,6 +45,7 @@ public class PureEnemyFighter : MonoBehaviour
     {
         if (enemyIsBlocking)
         {
+            enemyCurrentHealth += 5;
             Debug.Log($"{gameObject.name} blocked the attack!");
             return;
         }

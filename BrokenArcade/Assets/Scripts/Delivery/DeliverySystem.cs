@@ -34,7 +34,8 @@ public class Collision : MonoBehaviour
             Debug.Log("Another Happy Customer");
             hasPackaage = false;
             StartCoroutine(WaitTwoSeconds());
-            /// PUT WIN IN HERE.
+            GameController.Instance.OnWin();
+
 
 
         }   

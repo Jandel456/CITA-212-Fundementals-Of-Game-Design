@@ -18,6 +18,9 @@ public class Fighter : MonoBehaviour
     public GameObject fightersprite; // the target for changing the sprite of the fighter
     public Button blockButton;
     public Fighter playerFighter;
+    private PureEnemyFighter enemy; // Reference to the enemy
+
+
 
 
 
@@ -26,7 +29,8 @@ public class Fighter : MonoBehaviour
 
     void Start()
     {
-        blockButton.onClick.AddListener(playerFighter.Block);
+        enemy = FindObjectOfType<PureEnemyFighter>();
+
 
         currentHealth = maxHealth;
         if (healthBar != null)
@@ -35,10 +39,23 @@ public class Fighter : MonoBehaviour
         }
     }
 
+    void Update()
+{    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        Attack();
+    }
+
+    if (Input.GetKeyDown(KeyCode.B))
+    {
+        Attack();
+    }
+}
+
     public void TakeDamage(int damage)
     {
         if (isBlocking)
         {
+            currentHealth += 10;
             Debug.Log($"{gameObject.name} blocked the attack!");
             return;
         }
@@ -51,6 +68,7 @@ public class Fighter : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            HeartManager.Instance.RemoveHeart();
             Debug.Log($"{gameObject.name} is defeated!");
             
             // Optionally disable the GameObject
@@ -58,15 +76,15 @@ public class Fighter : MonoBehaviour
         }
     }
 
-    public void Attack(Fighter target)
+    public void Attack()
     {
         if (canAttack)
         {
             SpriteRenderer spriteRenderer = fightersprite.GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = fighterAttack;            
             
-            Debug.Log($"{gameObject.name} attacks {target.gameObject.name}");
-            target.TakeDamage(damage); 
+            Debug.Log($"{gameObject.name} attacks {enemy.gameObject.name}");
+            enemy.EnemyTakeDamage(damage);
             StartCoroutine(AttackCooldown());
             spriteRenderer.sprite = fighterNuetral;
         }

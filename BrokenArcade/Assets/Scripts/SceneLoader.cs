@@ -1,55 +1,69 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
-public class RandomSceneLoader : MonoBehaviour
+public class GameController : MonoBehaviour
 {
-    public static RandomSceneLoader Instance;
+    public static GameController Instance { get; private set; }  // Singleton instance
 
-    private List<int> remainingScenes; // List of scenes that haven't been visited
+    private int winCount = 0;  // Keeps track of the number of wins
 
-    void Awake()
+    // Ensure the singleton instance exists
+    private void Awake()
     {
-        // Singleton pattern to ensure only one instance persists
         if (Instance == null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); 
-            InitializeSceneList();
+            Instance = this;  // Set the instance if it's null
+            DontDestroyOnLoad(gameObject);  // Keep this GameObject between scene loads
         }
         else
         {
-            Destroy(gameObject); 
+            Destroy(gameObject);  // Destroy duplicate instances
         }
     }
 
-    private void InitializeSceneList()
+    // Call this method when you win a game
+    public void OnWin()
     {
-        int sceneCount = SceneManager.sceneCountInBuildSettings;
-        remainingScenes = new List<int>();
+        winCount++;  // Increment the win count
 
-        for (int i = 0; i < sceneCount; i++)
+        if (winCount == 1)
         {
-            remainingScenes.Add(i);
+            int screenIndex = Random.Range(1, 4); 
+            LoadScreen(screenIndex);
+        }
+        else if (winCount == 2)
+        {
+            int remainingScreen = GetRemainingScreen();
+            LoadScreen(remainingScreen);
+        }
+        else if (winCount == 3)
+        {
+            SceneManager.LoadScene("winScene");
         }
     }
 
-    public void LoadRandomScene()
+    public void OnLose()
     {
-        if (remainingScenes.Count == 0)
+        int screenIndex = Random.Range(1, 4); 
+        LoadScreen(screenIndex);
+    }
+
+    private void LoadScreen(int screenIndex)
+    {
+        string sceneName = "Screen" + screenIndex;
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private int GetRemainingScreen()
+    {
+        // Get the screen indices that have already been visited
+        System.Collections.Generic.List<int> availableScreens = new System.Collections.Generic.List<int> { 1, 2, 3 };
+        if (winCount > 1)
         {
-            Debug.Log("All scenes have been visited! Reloading the scene list.");
-            InitializeSceneList();
+            // Remove the screen that was already visited
+            int previousScreen = Random.Range(1, 4);
+            availableScreens.Remove(previousScreen);
         }
-
-        // Select a random scene from the remaining ones
-        int randomIndex = Random.Range(0, remainingScenes.Count);
-        int sceneToLoad = remainingScenes[randomIndex];
-
-        // Remove the selected scene from the list
-        remainingScenes.RemoveAt(randomIndex);
-
-        // Load the selected scene
-        SceneManager.LoadScene(sceneToLoad);
+        return availableScreens[0]; 
     }
 }

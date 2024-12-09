@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/DeliveryDriver.unity
     guid: 5cea0293102305443ab335bf9824eb00
   - enabled: 1
-    path: Assets/Scenes/LazerDefenderPlus.unity
-    guid: 426ab22a973c85b4c85139ebb453979a
-  - enabled: 1
     path: Assets/Scenes/SwordFight.unity
     guid: 8107f71e0a2969d44ab3aeb8a6c2519f
   - enabled: 1
     path: Assets/Scenes/BasketCatch.unity
     guid: b41a08fac6932634e8319a58a5381fbe
+  - enabled: 1
+    path: Assets/Scenes/winScene.unity
+    guid: ad4a4df49c746d247b9b888f7d728358
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 070cb586a32ad7743b3ac1c641d8162a, type: 2}

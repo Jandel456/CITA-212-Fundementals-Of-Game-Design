@@ -5,7 +5,7 @@ public class Catcher : MonoBehaviour
 {
     public float moveSpeed = 20f;
     private int score = 0;
-    public TextMeshProUGUI scoreText; 
+    public TextMeshProUGUI scoreText;
 
     void Update()
     {
@@ -33,7 +33,17 @@ public class Catcher : MonoBehaviour
         if (score >= 30)
         {
             Debug.Log("You Win!");
-            // Add a win screen or trigger
+            GameController.Instance.OnWin();
+
+        }
+
+        if (score <= -30)
+        {
+            Debug.Log("You Lose!");
+            HeartManager.Instance.RemoveHeart();
+            GameController.Instance.OnLose();
+
+
         }
     }
     public void UpdateScore(int scoreChange)
@@ -46,4 +56,6 @@ public class Catcher : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
     }
+
+    
 }
