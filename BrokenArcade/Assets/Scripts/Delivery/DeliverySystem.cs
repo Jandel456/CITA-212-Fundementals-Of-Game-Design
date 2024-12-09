@@ -39,8 +39,16 @@ public class Collision : MonoBehaviour
             Debug.Log("Another Happy Customer");
             hasPackaage = false;
             spriteRenderer.color = noPackageColor;
+            StartCoroutine(WaitTwoSeconds());
+            /// PUT WIN IN HERE.
+
 
         }   
+        IEnumerator WaitTwoSeconds()
+        {
+            yield return new WaitForSeconds(2);
+            Debug.Log("3 seconds have passed!");
+        }
     }
 
 }
